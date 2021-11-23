@@ -1,6 +1,6 @@
 # 题目大意
-给定一个整数数组，请你返回最长严格递增子序列的长度
+Given an integer array nums, return the length of the longest strictly increasing subsequence.
 # 解题思路
-动态规划。
+* 动态规划。
 
-贪心+二分搜索
+* 贪心+二分搜索

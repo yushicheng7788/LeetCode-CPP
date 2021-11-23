@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/admin/LeetCode-CPP/300-Longest-Increasing-Subsquence/Solution.h
+algorithm
+-
+vector
+-
+
+/mnt/c/Users/admin/LeetCode-CPP/300-Longest-Increasing-Subsquence/main.cpp
+iostream
+-
+Solution.h
+/mnt/c/Users/admin/LeetCode-CPP/300-Longest-Increasing-Subsquence/Solution.h
+
