@@ -1,4 +1,5 @@
 #include <string>
+#include <vector>
 #include <algorithm>
 #include <unordered_set>
 
@@ -22,15 +23,17 @@ public:
     }
 
     int lengthOfLongestSubstring2(std::string s) {
+        if (s.empty())
+            return 0;
         // dp[i]表示以s[i]为结尾的最长无重复子串长度
         std::vector<int> dp(s.size(), 1);
-        int ans = 0;
+        int ans = 1;
         for (int i = 1; i < s.size(); ++i) {
             int j = i-1;
             for (; j >= i - dp[i - 1]; --j)
                 if (s[i] == s[j])
                     break;
-            dp[i] = i - j + 1;
+            dp[i] = i - j;
             ans = std::max(ans, dp[i]);
         }
         return ans;
