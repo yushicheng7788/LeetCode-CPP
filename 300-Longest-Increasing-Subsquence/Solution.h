@@ -23,22 +23,26 @@ public:
 
     // greedy + binary search
     int lengthOfLIS2(vector<int>& nums) {
-        int len = 1, n = nums.size();
-        vector<int> helper(n+1, 0);
-        helper[1] = nums[0];
+        // helper[i] 表示 最长上升子序列长度为i时最小的值
+        const int n = nums.size();
+        vector<int> helper(n + 1, 0);
+        int len = 1;
+        helper[len] = nums[0];
         for (int i = 1; i < n; ++i) {
             if (nums[i] > helper[len]) {
                 helper[++len] = nums[i];
             } else {
-                int left = 1, right= len;
+                int left = 1, right = len;
                 while (left <= right) {
                     int mid = left + (right - left) / 2;
-                    if (helper[mid] < nums[i])
+                    if (helper[mid] < nums[i]) {
                         left = mid + 1;
-                    else
+                    } else {
                         right = mid - 1;
+                    }
                 }
-                helper[left] = nums[i];
+                if (nums[i] < helper[left])
+                    helper[left] = nums[i];
             }
         }
         return len;
